@@ -40,7 +40,7 @@ func main() {
 
 		r.ParseForm()
 		subject := *key + "-" + r.FormValue(*key)
-		res := c.Check([]byte(subject))
+		res, _ := c.Check([]byte(subject))
 		log.Printf("checking [%s] %s => %v", *key, subject, res)
 		fmt.Fprintf(w, "%v", res)
 	})
